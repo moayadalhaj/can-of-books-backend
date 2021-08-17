@@ -19,6 +19,7 @@
     "jwks-client": "^1.4.0",
     "jwks-rsa": "^2.0.3",
     "mongoose": "^5.13.7",
+    "node.js": "^0.0.1-security",
     "react-router-dom": "^5.2.0"
   }
 }
