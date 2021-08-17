@@ -8,11 +8,12 @@ const jwksClient = require('jwks-rsa');
 const mongoose = require("mongoose");
 const app = express();
 app.use(cors());
-const BookController = require('./controllers/Book.controller');
+const { BookController, AddBook, DeleteBook } = require('./controllers/Book.controller');
 const router = express.Router();
 const PORT = process.env.PORT || 8000;
+app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/booksData', {
+mongoose.connect('mongodb://localhost:27017/bookData', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -41,5 +42,7 @@ app.get('/auth', (req, res) => {
 });
 
 app.get('/books', BookController);
+app.post('/books', AddBook);
+app.delete('/books/:id', DeleteBook);
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

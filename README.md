@@ -1,11 +1,60 @@
-# Start your own "Can of Books" App
+# Can Of Books
 
-This repository has starter code to begin work on creating your own online bookshelf.
+**Author**: Moayad Alhaj
 
-## What can books do?
+**Version**: 1.0.0
 
-Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
+## Overview
 
-## Use this template
+The ability for a user to securly login to an application to store their data is crucial.
 
-Clone this repo to your own account with the green "Use this template" button. Then, add any collaborators. Now you are ready to start adding features! Deploy your site to let the world know which books have had the greatest impact on you, and what's recommended. Enjoy!
+## Getting Started
+
+install these libraries:
+
+- React
+- @auth0/auth0-react
+- bootstrap
+- react-bootstrap
+
+## Architecture
+
+used bootstrap for styling
+
+## Change Log
+
+15-08-2021 9:00pm - Application now has Login feature.
+
+## Credit and Collaborations
+
+Moayad Alhaj
+
+### 1. Name of feature: Authorization
+
+Estimate of time needed to complete: 2
+
+Start time: 7
+
+Finish time: 8:30
+
+Actual time needed to complete: 1:30
+
+### 2. Name of feature: Add a post method to add new books to the database
+
+Estimate of time needed to complete: 2
+
+Start time: 2
+
+Finish time: 3:30
+
+Actual time needed to complete: 1:30
+
+### 3. Name of feature: Add a delete method to delet book from the database
+
+Estimate of time needed to complete: 1
+
+Start time: 5:30
+
+Finish time: 6:30
+
+Actual time needed to complete: 1
