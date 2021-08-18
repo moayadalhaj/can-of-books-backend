@@ -6,7 +6,7 @@
 
 ## Overview
 
-The ability for a user to securly login to an application to store their data is crucial.
+The ability for a user to securly login to an application to store their data is crucial. Also, allow user to add, delete or update the information of any book in the datatbase.
 
 ## Getting Started
 
@@ -56,5 +56,15 @@ Estimate of time needed to complete: 1
 Start time: 5:30
 
 Finish time: 6:30
+
+Actual time needed to complete: 1
+
+### 4. Name of feature: Add a Put method to update book on the database
+
+Estimate of time needed to complete: 1:30
+
+Start time: 2
+
+Finish time: 3
 
 Actual time needed to complete: 1
