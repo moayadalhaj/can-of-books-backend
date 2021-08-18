@@ -1,14 +1,25 @@
 const mongoose = require("mongoose");
 const Book = require('../models/Book.model');
+const { jwt, getKey } = require('./Auth0.controller');
 
 const BookController = (req, res) => {
-  Book.find({}, (err, elements) => {
-    res.send(elements);
+  const token = req.headers.authorization.split(' ')[1];
+  jwt.verify(token, getKey, {}, (err, user) => {
+    if (err) {
+      res.send('invalid token');
+    }
+    Book.find({}, (err, books) => {
+      res.send(books);
+    })
   })
 }
 
 const AddBook = (req, res) => {
-  try {
+  const token = req.headers.authorization.split(' ')[1];
+  jwt.verify(token, getKey, {}, (err, user) => {
+    if (err) {
+      res.send('invalid token');
+    }
     const newBook = new Book({
       title: req.body.title,
       status: req.body.status,
@@ -17,14 +28,16 @@ const AddBook = (req, res) => {
     });
     newBook.save();
     res.send(newBook);
-  } catch (error) {
-    res.json(error.message);
-  }
+  })
 }
 
 const DeleteBook = (req, res) => {
-  try {
-    let bookId = req.params["id"];
+  const token = req.headers.authorization.split(' ')[1];
+  jwt.verify(token, getKey, {}, (err, user) => {
+    if (err) {
+      res.send('invalid token');
+    }
+    let bookId = req.params.id;
     Book.findByIdAndDelete({ _id: bookId }, (err, data) => {
       if (err) {
         res.send("delete faild")
@@ -33,8 +46,26 @@ const DeleteBook = (req, res) => {
         res.send(data);
       })
     })
-  } catch (error) {
-    res.json(error.message);
-  }
+  })
 }
-module.exports = { BookController, AddBook, DeleteBook };
+
+const UpdateBook = (req, res) => {
+  const token = req.headers.authorization.split(' ')[1];
+  jwt.verify(token, getKey, {}, (err, user) => {
+    if (err) {
+      res.send('invalid token');
+    }
+    let bookId = req.params.id;
+    Book.findOne({ _id: bookId }, (err, data) => {
+      if (err) {
+        res.send("delete faild")
+      }
+      data.title = req.body.title;
+      data.status = req.body.status;
+      data.description = req.body.description;
+      data.save();
+      res.send(data);
+    })
+  })
+}
+module.exports = { BookController, AddBook, DeleteBook, UpdateBook };
